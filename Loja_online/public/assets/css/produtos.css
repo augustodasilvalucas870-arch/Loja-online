@@ -1,0 +1,88 @@
+/* ===== Página Produtos ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+/* Header simples */
+.produtos-header {
+    background: linear-gradient(135deg, #ff7a00, #ff9f43);
+    color: #fff;
+    padding: 25px;
+}
+
+.produtos-header h1 {
+    margin: 0;
+}
+
+.produtos-header a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+/* Grid */
+.produtos-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+/* Card */
+.produto-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform .3s, box-shadow .3s;
+}
+
+.produto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.produto-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.produto-card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.produto-card .preco {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff7a00;
+    margin-bottom: 15px;
+}
+
+/* Botão */
+.produto-card a {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #ff7a00;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background .3s;
+}
+
+.produto-card a:hover {
+    background: #e86c00;
+}

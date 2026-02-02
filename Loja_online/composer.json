@@ -1,0 +1,16 @@
+{
+    "name": "hp/loja_online",
+    "description": "sistema de loja online",
+    "autoload": {
+        "psr-4": {
+            "Hp\\LojaOnline\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucas Silva",
+            "email": "augustodasilvalucas870@gmail.com"
+        }
+    ],
+    "require": {}
+}

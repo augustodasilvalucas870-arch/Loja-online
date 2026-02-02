@@ -1,0 +1,6 @@
+{
+  "name": "Loja Online",
+  "short_name": "Loja",
+  "start_url": "/public/index.php",
+  "display": "standalone"
+}
