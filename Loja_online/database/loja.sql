@@ -71,6 +71,9 @@ CREATE TABLE admin_logs (
     FOREIGN KEY (admin_id) REFERENCES users(id)
 );
 
+INSERT INTO pedidos (user_id, total, status, metodo_pagamento)
+VALUES (?, ?, 'pendente', ?)
+
 
 CREATE INDEX idx_user_email ON users(email);
 CREATE INDEX idx_produtos_categoria ON produtos(categoria_id);

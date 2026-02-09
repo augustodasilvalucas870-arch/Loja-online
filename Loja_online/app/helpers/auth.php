@@ -9,3 +9,4 @@ if (!isset($_SESSION['user'])) {
     header("Location: /Loja_online/public/login.php");
     exit;
 }
+

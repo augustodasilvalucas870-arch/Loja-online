@@ -1,6 +1,6 @@
 <?php
 // Conexão com a base de dados
-require_once '../config/database.php';
+require_once '../app/config/database.php';
 
 // Verifica se o ID foi enviado
 if (!isset($_GET['id']) || empty($_GET['id'])) {

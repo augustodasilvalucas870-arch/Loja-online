@@ -49,7 +49,7 @@ $produtos = $pdo->query("SELECT * FROM produtos")->fetchAll();
 
 <section class="hero-slider" id="inicio">
 
-    <div class="slide active" style="background-image: url('assets/images/slider/tecnologia.jpeg');">
+    <div class="slide active" style="background-image: url('assets/images/slider/acessoriostecno.jpg');">
         <div class="hero-text">
             <h1>Compras inteligentes começam aqui</h1>
             <p>Produtos modernos, preços acessíveis e pagamento seguro.</p>

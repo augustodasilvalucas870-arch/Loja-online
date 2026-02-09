@@ -44,6 +44,7 @@ $pdo->commit();
 
 $_SESSION['pedido_id'] = $pedido_id;
 
+
 if ($metodo === 'paypal') {
     header("Location: paypal.php");
 } else {

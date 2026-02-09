@@ -1,6 +1,7 @@
 <?php
 session_start();
 require "../app/config/database.php";
+$_SESSION['user_id'] = $usuario['id'];
 
 $erro = "";
 

@@ -1,36 +1,24 @@
 <?php
 session_start();
+require_once __DIR__ . '/../config/database.php';
 
-require_once __DIR__ . "/../app/config/database.php";
-require_once __DIR__ . "/../app/helpers/auth.php";
-
-$metodo = $_POST['pagamento'] ?? null;
-
-if (!$metodo) {
-    header("Location: pagamento.php");
-    exit;
-}
-
-
-
-// Verificar login
-if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
-    exit;
-}
-
-$user_id = $_SESSION['user']['id'];
-
-// Verificar carrinho
-if (empty($_SESSION['carrinho'])) {
+if (!isset($_SESSION['user_id']) || empty($_SESSION['carrinho'])) {
     header("Location: carrinho.php");
     exit;
 }
 
+$metodo = $_POST['metodo'] ?? null;
 $user_id = $_SESSION['user_id'];
-$total = 0;
+
+if (!$metodo) {
+    die("Método inválido");
+}
+
+// Simulação de pagamento aprovado
+$status_pagamento = "pago";
 
 // Calcular total
+$total = 0;
 foreach ($_SESSION['carrinho'] as $item) {
     $total += $item['preco'] * $item['quantidade'];
 }
@@ -38,14 +26,16 @@ foreach ($_SESSION['carrinho'] as $item) {
 try {
     $pdo->beginTransaction();
 
+    // Criar pedido
     $stmt = $pdo->prepare("
-        INSERT INTO pedidos (user_id, total, status)
-        VALUES (?, ?, 'pago')
+        INSERT INTO pedidos (user_id, total, status, metodo_pagamento)
+        VALUES (?, ?, ?, ?)
     ");
-    $stmt->execute([$user_id, $total]);
+    $stmt->execute([$user_id, $total, $status_pagamento, $metodo]);
 
     $pedido_id = $pdo->lastInsertId();
 
+    // Itens do pedido
     $stmtItem = $pdo->prepare("
         INSERT INTO pedido_itens (pedido_id, produto_id, quantidade, preco)
         VALUES (?, ?, ?, ?)
@@ -69,5 +59,5 @@ try {
 
 } catch (Exception $e) {
     $pdo->rollBack();
-    echo "Erro ao finalizar compra: " . $e->getMessage();
+    die("Erro no pagamento: " . $e->getMessage());
 }

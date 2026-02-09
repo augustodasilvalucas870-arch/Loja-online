@@ -20,8 +20,8 @@ $pedidos = $pdo->query("
 <head>
 <meta charset="UTF-8">
 <title>Pedidos</title>
-<link rel="stylesheet" href="../public/assets/css/style.css">
-<link rel="stylesheet" href="css/admin.css">
+
+<link rel="stylesheet" href="../public/assets/css/admin.css">
 </head>
 <body>
 
